@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Cinzel', serif;
+  background-color: #f7f7f7;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 40px; /* Dodano odstęp od góry strony */
+}
+
+.content {
+  width: 90%;
+  max-width: 960px; /* Szerokość dostosowana do układu 4x4 kart */
+  text-align: center;
+}
+
+h1 {
+  font-size: 4vw;
+  margin: 0.5em 0;
+}
+
+.resize-controls {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.resize-controls button {
+  font-size: 24px;
+  color: #ffd700; /* Złoty kolor tekstu */
+  background-color: rgba(255, 255, 255, 0.5); /* Półprzezroczyste tło */
+  border: 2px solid #ffd700; /* Złota obwódka */
+  margin: 0 10px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 2px;
+  background: none;
+  font-family: 'Cinzel', serif;
+  background-image: linear-gradient(45deg, transparent 45%, #ffd700 45%, #ffd700 55%, transparent 55%), linear-gradient(-45deg, transparent 45%, #ffd700 45%, #ffd700 55%, transparent 55%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+.resize-controls button:hover {
+  transform: scale(1.1); /* Animacja powiększająca przycisk przy najechaniu */
+  background-color: rgba(255, 215, 0, 0.5); /* Zmiana koloru tła na bardziej złoty przy najechaniu */
+}
+
+#time, #tries {
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+#restart {
+  font-size: 1em;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #f2e5d7;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#restart:hover {
+  background-color: #e2d4c8;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 4px solid #f2e5d7;
+  width: 50%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  font-family: 'Cinzel', serif; /* Czcionka jak w tytule */
+  font-size: 1.5em; /* Zwiększony rozmiar czcionki dla faktów */
+}
+
+.close {
+  color: #aaaaaa;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.memory-game {
+  width: 100%;
+  max-width: 960px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+img {
+  width: 100%;
+  cursor: pointer;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+}
+
+#congrats-modal .modal-content,
+#fact-modal .modal-content {
+  font-family: 'Cinzel', serif; /* Zmieniona czcionka z Arial na Cinzel */
+  text-transform: none;
+}
+
+#score-form {
+  margin-top: 20px;
+}
+
+#score-form input[type="text"] {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#score-form button {
+  padding: 10px 20px;
+  background-color: #f2e5d7;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#score-form button:hover {
+  background-color: #e2d4c8;
+}
+
+@media (max-width: 700px) {
+  .modal-content {
+    width: 80%;
+    margin: 20% auto;
+    font-size: 4vw; /* Zwiększony rozmiar czcionki dla faktów na mniejszych ekranach */
+  }
+
+  .memory-game {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h1, #time, #tries {
+    font-size: 5vw;
+  }
+.resize-controls button:hover {
+  transform: scale(1.2); /* Zwiększony efekt powiększania */
+  background-color: rgba(255, 215, 0, 0.8); /* Intensywniejszy kolor tła */
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Dodanie cienia dla lepszego efektu */
+}
+
+}

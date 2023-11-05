@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory z Walerią</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="content">
+  <h1>Memory z Walerią</h1>
+  <div id="time">Czas: 0 sekund</div>
+  <div id="tries">Próby: 0</div>
+  <div class="memory-game">
+    <!-- Tutaj będą dynamicznie dodawane karty gry -->
+  </div>
+  <button id="restart">Restartuj grę</button>
+</div>
+
+<!-- Modal z ciekawostką -->
+<div id="fact-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="fact-text"></p>
+  </div>
+</div>
+<!-- Modal z gratulacjami i formularzem do wpisania wyniku -->
+<div id="congrats-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-congrats">&times;</span>
+    <h2 id="congrats-text">Gratulacje!</h2>
+    <p>Twój czas to: <span id="final-time"></span> sekund</p>
+    <p>Liczba prób: <span id="final-tries"></span></p>
+    <form id="score-form">
+      <input type="text" id="player-name" placeholder="Wpisz swoje imię">
+      <button type="submit">Zapisz wynik</button>
+    </form>
+  </div>
+</div>
+<div id="end-game-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Gratulacje!</h2>
+    <p>Ukończyłeś grę w <span id="end-game-time">0 sekund</span> i <span id="end-game-tries">0 prób</span>.</p>
+    <button id="play-again-button">Zagraj ponownie</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
