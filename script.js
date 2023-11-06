@@ -180,4 +180,64 @@ if (closeButton) {
     closeModal();
   }
 }
+// Struktura danych do przechowywania wyników
+let highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+// Funkcja do wyświetlania modala z wynikami
+function showScoreModal(time, tries) {
+  const finalTimeSpan = document.getElementById('final-time');
+  const finalTriesSpan = document.getElementById('final-tries');
+  finalTimeSpan.textContent = time;
+  finalTriesSpan.textContent = tries;
+  document.getElementById('score-entry-modal').style.display = 'block';
+}
+
+// Funkcja do zapisywania wyniku
+function saveScore(name, time, tries) {
+  highScores.push({ name, time, tries });
+  highScores.sort((a, b) => (a.tries / a.time) - (b.tries / b.time));
+  highScores = highScores.slice(0, 20); // Zachowaj tylko 20 najlepszych wyników
+  localStorage.setItem('highScores', JSON.stringify(highScores));
+  displayHighScores();
+}
+
+// Funkcja do wyświetlania tablicy wyników
+function displayHighScores() {
+  const highScoresList = document.getElementById('high-scores-list');
+  highScoresList.innerHTML = highScores.map(score => `
+    <li>${score.name} - Czas: ${score.time} sekund, Próby: ${score.tries}</li>
+  `).join('');
+  document.getElementById('high-scores-modal').style.display = 'block';
+}
+
+// Obsługa wysyłki formularza wyników
+document.getElementById('score-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const nameInput = document.getElementById('player-name');
+  const name = nameInput.value;
+  if(name) {
+    const time = parseInt(document.getElementById('final-time').textContent);
+    const tries = parseInt(document.getElementById('final-tries').textContent);
+    saveScore(name, time, tries);
+    nameInput.value = ''; // Wyczyść pole po zapisaniu
+    document.getElementById('score-entry-modal').style.display = 'none'; // Zamknij modal
+  }
+});
+
+// Obsługa zamknięcia modala wyników
+document.querySelectorAll('.modal .close').forEach(closeButton => {
+  closeButton.addEventListener('click', function() {
+    this.parentElement.parentElement.style.display = 'none';
+  });
+});
+
+// Przykładowa funkcja, która powinna być wywołana przy zakończeniu gry
+function endGame(time, tries) {
+  showScoreModal(time, tries); // Tutaj podstaw czas i próby po zakończeniu gry
+  // Dodatkowo wywołaj tę funkcję, gdy gra się zakończy
+}
+
+// Inicjalizacja tablicy wyników przy ładowaniu gry
+document.addEventListener('DOMContentLoaded', displayHighScores);
+
 });

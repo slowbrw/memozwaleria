@@ -11,49 +11,20 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  padding-top: 40px; /* Dodano odstęp od góry strony */
 }
 
 .content {
-  width: 90%;
-  max-width: 960px; /* Szerokość dostosowana do układu 4x4 kart */
+  width: 75%;
+  max-width: 960px;
   text-align: center;
+  margin: 0 auto;
 }
 
 h1 {
   font-size: 4vw;
   margin: 0.5em 0;
-}
-
-.resize-controls {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.resize-controls button {
-  font-size: 24px;
-  color: #ffd700; /* Złoty kolor tekstu */
-  background-color: rgba(255, 255, 255, 0.5); /* Półprzezroczyste tło */
-  border: 2px solid #ffd700; /* Złota obwódka */
-  margin: 0 10px;
-  padding: 5px 15px;
-  cursor: pointer;
-  transition: transform 0.3s;
-  border-radius: 0;
-  border-style: solid;
-  border-width: 2px;
-  background: none;
-  font-family: 'Cinzel', serif;
-  background-image: linear-gradient(45deg, transparent 45%, #ffd700 45%, #ffd700 55%, transparent 55%), linear-gradient(-45deg, transparent 45%, #ffd700 45%, #ffd700 55%, transparent 55%);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
-}
-
-.resize-controls button:hover {
-  transform: scale(1.1); /* Animacja powiększająca przycisk przy najechaniu */
-  background-color: rgba(255, 215, 0, 0.5); /* Zmiana koloru tła na bardziej złoty przy najechaniu */
 }
 
 #time, #tries {
@@ -97,8 +68,6 @@ h1 {
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   position: relative;
-  font-family: 'Cinzel', serif; /* Czcionka jak w tytule */
-  font-size: 1.5em; /* Zwiększony rozmiar czcionki dla faktów */
 }
 
 .close {
@@ -134,10 +103,11 @@ img {
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
 }
 
-#congrats-modal .modal-content,
-#fact-modal .modal-content {
-  font-family: 'Cinzel', serif; /* Zmieniona czcionka z Arial na Cinzel */
-  text-transform: none;
+/* Style dla modalu wpisywania wyników i listy wyników */
+#score-entry-modal .modal-content,
+#high-scores-modal .modal-content {
+  font-family: 'Cinzel', serif;
+  text-align: center;
 }
 
 #score-form {
@@ -163,11 +133,20 @@ img {
   background-color: #e2d4c8;
 }
 
+#high-scores-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#high-scores-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
 @media (max-width: 700px) {
   .modal-content {
     width: 80%;
     margin: 20% auto;
-    font-size: 4vw; /* Zwiększony rozmiar czcionki dla faktów na mniejszych ekranach */
   }
 
   .memory-game {
@@ -177,10 +156,4 @@ img {
   h1, #time, #tries {
     font-size: 5vw;
   }
-.resize-controls button:hover {
-  transform: scale(1.2); /* Zwiększony efekt powiększania */
-  background-color: rgba(255, 215, 0, 0.8); /* Intensywniejszy kolor tła */
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Dodanie cienia dla lepszego efektu */
-}
-
 }

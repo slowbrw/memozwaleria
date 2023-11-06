@@ -26,11 +26,12 @@
     <p id="fact-text"></p>
   </div>
 </div>
+
 <!-- Modal z gratulacjami i formularzem do wpisania wyniku -->
-<div id="congrats-modal" class="modal">
+<div id="score-entry-modal" class="modal">
   <div class="modal-content">
-    <span class="close" id="close-congrats">&times;</span>
-    <h2 id="congrats-text">Gratulacje!</h2>
+    <span class="close">&times;</span>
+    <h2>Wpisz wynik</h2>
     <p>Twój czas to: <span id="final-time"></span> sekund</p>
     <p>Liczba prób: <span id="final-tries"></span></p>
     <form id="score-form">
@@ -39,14 +40,18 @@
     </form>
   </div>
 </div>
-<div id="end-game-modal" class="modal">
+
+<!-- Modal z tablicą wyników -->
+<div id="high-scores-modal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <h2>Gratulacje!</h2>
-    <p>Ukończyłeś grę w <span id="end-game-time">0 sekund</span> i <span id="end-game-tries">0 prób</span>.</p>
-    <button id="play-again-button">Zagraj ponownie</button>
+    <h2>Tablica wyników</h2>
+    <ol id="high-scores-list">
+      <!-- Tutaj będą dynamicznie dodawane wpisy -->
+    </ol>
   </div>
 </div>
+
 <script src="script.js"></script>
 </body>
 </html>
